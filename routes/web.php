@@ -28,3 +28,8 @@ Route::any('/any', function() { // Any: permite todo tipo de acesso http (get, p
 Route::match(['put', 'post'],'/match', function() { // Match: permite apenas acessos definidos
     return "Estou aqui porque tenho permissao da rota Match";
 });
+
+// Os valores entre chaves depois da rota sao os "parametros"
+Route::get('/produto/{id}/{cat?}', function($id_prod, $categoria = '') {
+    return "O id do produto eh: ".$id_prod."<br>"."A categorai eh: ".$categoria;
+});
