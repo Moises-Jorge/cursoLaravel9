@@ -17,6 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/empresa', function () {
-    return view('site/empresa');
+Route::get('/empresa', function () { // Criacao de rotas comuns
+    return view('site/empresa'); 
 });
