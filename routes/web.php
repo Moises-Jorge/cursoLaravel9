@@ -17,9 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/empresa', function () { // Criacao de rotas comuns
+/* Route::get('/empresa', function () { // Criacao de rotas comuns
     return view('site/empresa'); 
-});
+}); ESSA ROTA FOI ESCRITA DE FORMA MAIS FACIL NA LINHA 40*/
 
 Route::any('/any', function() { // Any: permite todo tipo de acesso http (get, post, put, delete...)
     return "Estou aqui porque fui chamado, tenho passe livre na rota Any";
@@ -35,3 +35,6 @@ Route::get('/produto/{id}/{cat?}', function($id_prod, $categoria = '') {
 });
 
 Route::redirect('/sobre', '/empresa');
+
+// Se quando uma rota for chamada, tiver que renderizar apenas uma view; entao pode ser escrito de forma mais facil:
+Route::view('/empresa', 'site/empresa');
