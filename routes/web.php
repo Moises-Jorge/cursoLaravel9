@@ -20,3 +20,11 @@ Route::get('/', function () {
 Route::get('/empresa', function () { // Criacao de rotas comuns
     return view('site/empresa'); 
 });
+
+Route::any('/any', function() { // Any: permite todo tipo de acesso http (get, post, put, delete...)
+    return "Estou aqui porque fui chamado, tenho passe livre na rota Any";
+});
+
+Route::match(['put', 'post'],'/match', function() { // Match: permite apenas acessos definidos
+    return "Estou aqui porque tenho permissao da rota Match";
+});
