@@ -34,6 +34,4 @@ Route::get('/produto/{id}/{cat?}', function($id_prod, $categoria = '') {
     return "O id do produto eh: ".$id_prod."<br>"."A categorai eh: ".$categoria;
 });
 
-Route::get('/sobre', function() { // Quando a rota "/sobre" for acessada...
-    return redirect('/empresa'); // ... ela vai redirecionar para a rota "/empresa".
-});
+Route::redirect('/sobre', '/empresa');
