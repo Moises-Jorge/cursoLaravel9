@@ -38,3 +38,11 @@ Route::redirect('/sobre', '/empresa');
 
 // Se quando uma rota for chamada, tiver que renderizar apenas uma view; entao pode ser escrito de forma mais facil:
 Route::view('/empresa', 'site/empresa');
+
+Route::get('/news', function() {
+    return view('news');
+}) -> name('noticias'); // 'noticias' eh o nome da minha rota /news
+
+Route::get('/novidades', function() {
+    return redirect() -> route('noticias'); // Redirecionando a rota "/novidades" para a rota "/news", mas usando o nome que atribui a rota.
+});
