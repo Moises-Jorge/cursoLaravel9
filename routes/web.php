@@ -14,19 +14,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+    return redirect() -> route('admin.clientes'); // fazendo o redirecionamento para testar se o agrupamento por nome esta funcionando.
 });
 
-Route::prefix('admin') -> group(function() {
-    Route::get('dashboard', function() {
+// Nesse caso, ao inves de agrupar pelo "prefixo", agrupamos pelo "nome".
+Route::name('admin.') -> group(function() {
+    Route::get('/admin/dashboard', function() {
         return 'dashboard';
-    });
+    }) -> name('dashboard');
     
-    Route::get('users', function() {
+    Route::get('/admin/users', function() {
         return 'users';
-    });
+    }) -> name('users');
     
-    Route::get('clientes', function() {
+    Route::get('/admin/clientes', function() {
         return 'clientes';
-    });
+    }) -> name('clientes');
 });
