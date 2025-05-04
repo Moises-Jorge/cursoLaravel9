@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProdutoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,26 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    //return view('welcome');
-    return redirect() -> route('admin.users'); // fazendo o redirecionamento para testar se o agrupamento por nome esta funcionando.
-});
-
-// Nesse caso, ao inves de agrupar pelo "prefixo" ou pelo "nome", vamos agrupar pelos dois ("por prefixo" e por "nome").
-Route::group([
-    'prefix' => 'admin',
-    'as' => 'admin.' // 'as' == 'name'
-], function() {
-
-    Route::get('dashboard', function() {
-        return 'dashboard';
-    }) -> name('dashboard');
-    
-    Route::get('users', function() {
-        return 'users';
-    }) -> name('users');
-    
-    Route::get('clientes', function() {
-        return 'clientes';
-    }) -> name('clientes');
-});
+// Rota ->> Controller que responde pela rota ->> nome da funcao que executa alguma acao
+Route::get('/', [ProdutoController::class, 'index']);
