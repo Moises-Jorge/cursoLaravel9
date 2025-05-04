@@ -15,4 +15,6 @@ use App\Http\Controllers\ProdutoController;
 */
 
 // Rota ->> Controller que responde pela rota ->> nome da funcao que executa alguma acao
-Route::get('/', [ProdutoController::class, 'index']);
+Route::get('/', [ProdutoController::class, 'index']) -> name('produto.index');
+
+Route::get('/produto/{id?}', [ProdutoController::class, 'show']) -> name('produto.show');
