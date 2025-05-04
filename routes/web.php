@@ -14,7 +14,5 @@ use App\Http\Controllers\ProdutoController;
 |
 */
 
-// Rota ->> Controller que responde pela rota ->> nome da funcao que executa alguma acao
-Route::get('/', [ProdutoController::class, 'index']) -> name('produto.index');
-
-Route::get('/produto/{id?}', [ProdutoController::class, 'show']) -> name('produto.show');
+// Para chamar/usar os metodos do ProdutoController -- resource, nao precisa criar uma rota para cada metodo, basta criar a rota como "resource". Assim:
+Route::resource('produtos', ProdutoController::class); // Dessa forma, usando o nome "produtos" (nome da rota), podemos chamar todas as funcoes(nesse caso especifico, a rota esta chamando o metodo "show") Para outras rotas e chamar outros metodos, basta rodar o comando: "php artisan route:list"!
