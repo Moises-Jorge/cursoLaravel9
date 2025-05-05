@@ -14,11 +14,12 @@ class User extends Authenticatable
 
     /**
      * The attributes that are mass assignable.
-     *
+     * Aqui no fillable eh onde definimos os atributos de uma tabela(model) que vao ser inseridos em massa numa primeira instancia.
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
         'email',
         'password',
     ];

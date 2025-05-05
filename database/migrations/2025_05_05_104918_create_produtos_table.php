@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('descricao');
             $table->double('preco', 10, 2);
             $table->string('slug'); // slug: Titulo da nossa url
-            $table->string('imagem'); // caminho onde se encontra a imagem
+            $table->string('imagem')->nullable(); // caminho onde se encontra a imagem
 
             // Criando e estabelecendo relacionamento com a tabela "users"
             $table->unsignedBigInteger('id_user'); // Criando o campo que vai ser a chave estrangeira
