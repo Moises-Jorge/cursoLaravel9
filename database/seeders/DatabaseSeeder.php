@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Categoria;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -19,6 +20,7 @@ class DatabaseSeeder extends Seeder
         // Depois criar o seeder e atribuir os valores desejados, basta chamar o metodo "call" aqui dentro e passar um array com as classes dos seeders que serao executados
         $this->call([
             UserSeeder::class,
+            CategoriasSeeder::class,
         ]);
     }
 }
